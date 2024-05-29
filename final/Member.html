@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OUCycle · Members</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+          <a class="navbar-brand" href="index.html"
+            ><img src="./logo.png" alt
+          /></a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul
+              class="navbar-nav ms-lg-auto py-4 py-lg-0 text-center text-lg-left"
+            >
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="index.html"
+                  >Home</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="Rides.html">Rides</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="Events.html">Events</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="Member.html">Members</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="News.html">News</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="Announcements.html">Announcements</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="main">
+      <div class="container">
+        <div class="inner">
+          <h1 class="page-title">Members</h1>
+          <div class="row gx-2 gy-3">
+            <div class="col-12">
+              <div class="card-wrapper">
+                <div class="head">
+                  <h2>Add New Member</h2>
+                </div>
+                <div class="inner-card-wrapper">
+                  <form id="memberForm">
+                    <input type="hidden" id="editKey" />
+                    <div class="row justify-content-center">
+                      <div class="col-lg-3 col-md-4 col-sm-6">
+                        <div class="field-wrapper d-flex flex-column">
+                          <label for="forename">Forename</label>
+                          <input type="text" id="forename" name="forename" />
+                        </div>
+                        <div class="field-wrapper d-flex flex-column mt-3">
+                          <label for="surname">Surname</label>
+                          <input type="text" id="surname" name="surname" />
+                        </div>
+                        <div class="field-wrapper d-flex flex-column mt-3">
+                          <label for="gender">Gender</label>
+                          <input type="text" id="gender" name="gender" />
+                        </div>
+                        <div class="field-wrapper d-flex flex-column mt-3">
+                          <label for="dob">Date of Birth</label>
+                          <input type="text" id="dob" name="dob" />
+                        </div>
+                        <div class="field-wrapper d-flex flex-column mt-3">
+                          <label for="email">Email Address</label>
+                          <input type="email" id="email" name="email" />
+                        </div>
+                      </div>
+                      <div class="col-lg-3 col-md-4 col-sm-6">
+                        <div class="field-wrapper d-flex flex-column">
+                          <label for="phone">Phone number</label>
+                          <input type="text" id="phone" name="phone" />
+                        </div>
+                        <div class="field-wrapper d-flex flex-column mt-3">
+                          <label for="address">Home address</label>
+                          <input type="text" id="address" name="address" />
+                        </div>
+                        <div class="field-wrapper d-flex flex-column mt-3">
+                          <label for="emergencyContactName"
+                            >Emergency contact name</label
+                          >
+                          <input
+                            type="text"
+                            id="emergencyContactName"
+                            name="emergencyContactName"
+                          />
+                        </div>
+                        <div class="field-wrapper d-flex flex-column mt-3">
+                          <label for="emergencyContactNumber"
+                            >Emergency contact number</label
+                          >
+                          <input
+                            type="text"
+                            id="emergencyContactNumber"
+                            name="emergencyContactNumber"
+                          />
+                        </div>
+                        <div class="field-wrapper d-flex flex-column mt-3">
+                          <label for="password">Chosen password</label>
+                          <input
+                            type="password"
+                            id="password"
+                            name="password"
+                          />
+                        </div>
+                      </div>
+                      <div class="col-lg-3 col-md-8">
+                        <div class="field-wrapper d-flex flex-column">
+                          <label for="membershipOption"
+                            >Membership option</label
+                          >
+                          <input
+                            type="text"
+                            id="membershipOption"
+                            name="membershipOption"
+                          />
+                        </div>
+                        <div class="field-wrapper d-flex flex-column mt-3">
+                          <label for="paymentMethod"
+                            >Preferred payment method</label
+                          >
+
+                          <select
+                            id="paymentMethod"
+                            name="paymentMethod"
+                            class="form-select"
+                            required
+                          >
+                            <option value="card">Card</option>
+                            <option value="paypal">Paypal</option>
+                            <option value="cash">Cash</option>
+                          </select>
+                        </div>
+                        <div
+                          class="field-wrapper d-flex justify-content-between mt-3"
+                        >
+                          <label for="automaticRenewal" class="check-label"
+                            >Automatic renewal</label
+                          >
+                          <input
+                            type="checkbox"
+                            id="automaticRenewal"
+                            name="automaticRenewal"
+                          />
+                        </div>
+                        <div
+                          class="field-wrapper d-flex justify-content-between mt-3"
+                        >
+                          <label for="emailConsent" class="check-label"
+                            >Consent to receive announcement emails</label
+                          >
+                          <input
+                            type="checkbox"
+                            id="emailConsent"
+                            name="emailConsent"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <button type="submit" class="more-cta">Submit</button>
+                  </form>
+                </div>
+              </div>
+              <div class="card-wrapper mt-3">
+                <div class="head">
+                  <h2>Existing Members</h2>
+                </div>
+                <div
+                  id="existingMembers"
+                  class="carousel slide pb-2"
+                  data-bs-ride="carousel"
+                >
+                  <div class="carousel-indicators">
+                    <!-- Indicators will be dynamically added here -->
+                  </div>
+                  <div class="carousel-inner">
+                    <!-- Member items will be dynamically added here -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- email modal  -->
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="emailModal"
+      tabindex="-1"
+      aria-labelledby="emailModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalTitleEmail">Modal title</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div id="modalOptionsEmail"></div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document;
+      $("#memberForm").on("submit", function (event) {
+        event.preventDefault();
+
+        // Collect member data from the form
+        const memberData = {
+          forename: $("#forename").val(),
+          surname: $("#surname").val(),
+          gender: $("#gender").val(),
+          dob: $("#dob").val(),
+          email: $("#email").val(),
+          phone: $("#phone").val(),
+          address: $("#address").val(),
+          emergencyContactName: $("#emergencyContactName").val(),
+          emergencyContactNumber: $("#emergencyContactNumber").val(),
+          password: $("#password").val(),
+          membershipOption: $("#membershipOption").val(),
+          paymentMethod: $("#paymentMethod").val(),
+          automaticRenewal: $("#automaticRenewal").is(":checked"),
+          emailConsent: $("#emailConsent").is(":checked"),
+        };
+
+        // Check if it's an edit or add operation
+        const editKey = $("#editKey").val();
+        if (editKey) {
+          // Update existing member data in localStorage
+          localStorage.setItem(editKey, JSON.stringify(memberData));
+        } else {
+          // Generate a unique key for the new member
+          const uniqueKey = "member_" + new Date().getTime();
+          localStorage.setItem(uniqueKey, JSON.stringify(memberData));
+        }
+
+        // Clear the form and re-render existing members
+        $("#memberForm")[0].reset();
+        displayMembers();
+      });
+
+      function displayMembers() {
+        const membersContainer = document.querySelector(".carousel-inner");
+        const indicatorsContainer = document.querySelector(
+          ".carousel-indicators"
+        );
+
+        // Clear current members
+        membersContainer.innerHTML = "";
+        indicatorsContainer.innerHTML = "";
+        const keyy = localStorage.key(0);
+        console.log(`keyy: ${keyy}`);
+        // Get all members from local storage
+        const members = [];
+        for (let i = 0; i < localStorage.length; i++) {
+          const key = localStorage.key(i);
+          if (key.startsWith("member_")) {
+            const member = JSON.parse(localStorage.getItem(key));
+            members.push({ key, ...member });
+          }
+        }
+
+        // Sort members by key (timestamp)
+        members.sort((a, b) => a.key.localeCompare(b.key));
+
+        console.log(members.sort((a, b) => a.key.localeCompare(b.key)));
+
+        // Display members
+        members.forEach((member, index) => {
+          const activeClass = index === 0 ? "active" : "";
+
+          indicatorsContainer.innerHTML += `
+            <button type="button" data-bs-target="#existingMembers" data-bs-slide-to="${index}" class="${activeClass}" aria-current="true" aria-label="Slide ${
+            index + 1
+          }"></button>
+        `;
+
+          membersContainer.innerHTML += `
+            <div class="carousel-item ${activeClass}">
+                <div class="inner-card-wrapper">
+                    <div class="bordered-card-item">
+                        <div class="details-head d-flex justify-content-between">
+                            <div class="d-flex flex-column align-items-start">
+                                <h3>${member.surname}, ${member.forename}</h3>
+                                <p>${member.email} | ${member.phone}</p>
+                                <span>Membership: ${
+                                  member.membershipOption
+                                }</span>
+                            </div>
+                            <div class="edit d-flex align-items-start">
+                                <div class="d-flex flex-column align-items-end">
+                                  <div
+													class="d-flex flex-column align-items-end">
+													<span>Born ${member.dob}</span>
+													<span>${member.gender}</span>
+
+												</div>
+                                </div>
+                                <span class="status edit" data-key="${
+                                  member.key
+                                }">
+                                <i class="text-light fa-solid fa-pen-to-square"></i>
+                            </span>
+                            </div>
+                        </div>
+                        <div class="row mb-2">
+                            <div class="col-6">
+                                <div class="content column-details">
+                                    <div class="d-flex align-items-start mt-2">
+                                        <span class="small">Address</span>
+                                        <p>${member.address}</p>
+                                    </div>
+                                    <div class="d-flex align-items-start mt-2">
+                                        <span class="small">Emergency Contact</span>
+                                        <p class="small">${
+                                          member.emergencyContactName
+                                        } ${member.emergencyContactNumber}</p>
+                                    </div>
+                                    <div class="d-flex align-items-start mt-2">
+                                        <span class="small">Password</span>
+                                        <p class="small">${member.password}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 d-flex justify-content-center align-items-end flex-column pe-3 pe-xl-5 ">
+                              
+    
+    ${`<span onClick="togglePayment('${
+      member.key
+    }')" id="paymentText" class="status blue big">${
+      member.paymentMethod || "Select Payment Method"
+    }</span>`}
+
+    ${
+      member.automaticRenewal
+        ? `<span onClick="toggleAutomaticRenewal('${member.key}')" id="automaticRenewalText" class="status big approved">Automatic Renewal</span>`
+        : `<span onClick="toggleAutomaticRenewal('${member.key}')" id="automaticRenewalText" class="status big cancelled">Non-Automatic Renewal</span>`
+    }
+
+    ${
+      member.emailConsent
+        ? `<span onClick="toggleEmailConsent('${member.key}')" id="emailConsentText" class="status big approved">Email Consent</span>`
+        : `<span onClick="toggleEmailConsent('${member.key}')" id="emailConsentText" class="status big cancelled">No Email Consent</span>`
+    }
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+        });
+      }
+
+      // Initial display of existing members
+      displayMembers();
+
+      $(".status.edit").on("click", function () {
+        const memberKey = $(this).data("key");
+        $("#editKey").val(memberKey);
+        const memberData = JSON.parse(localStorage.getItem(memberKey));
+
+        // Fill the form with member data for editing
+        $("#forename").val(memberData.forename);
+        $("#surname").val(memberData.surname);
+        $("#gender").val(memberData.gender);
+        $("#dob").val(memberData.dob);
+        $("#email").val(memberData.email);
+        $("#phone").val(memberData.phone);
+        $("#address").val(memberData.address);
+        $("#emergencyContactName").val(memberData.emergencyContactName);
+        $("#emergencyContactNumber").val(memberData.emergencyContactNumber);
+        $("#password").val(memberData.password);
+        $("#membershipOption").val(memberData.membershipOption);
+        $("#paymentMethod").val(memberData.paymentMethod);
+        $("#automaticRenewal").prop("checked", memberData.automaticRenewal);
+        $("#emailConsent").prop("checked", memberData.emailConsent);
+      });
+
+      // Function to handle toggling automatic renewal
+      function toggleAutomaticRenewal(memberKey) {
+        const automaticRenewalDisplay = document.getElementById(
+          "automaticRenewalText"
+        );
+        const modalTitle = document.getElementById("modalTitle");
+        const modalOptions = document.getElementById("modalOptions");
+
+        // Update modal title and options
+        modalTitle.textContent = "Automatic Renewal";
+        modalOptions.innerHTML = `
+    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Automatic Renewal</button>
+    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Non-Automatic Renewal</button>
+  `;
+
+        // Show the modal
+        const myModal = new bootstrap.Modal(
+          document.getElementById("exampleModal")
+        );
+        myModal.show();
+
+        // Handle the selection from modal
+        modalOptions.addEventListener("click", function (event) {
+          const selectedOption = event.target.textContent;
+          automaticRenewalDisplay.textContent = selectedOption;
+
+          // Update the automatic renewal status in localStorage for the specific member
+          const memberData = JSON.parse(localStorage.getItem(memberKey));
+          memberData.automaticRenewal = selectedOption === "Automatic Renewal";
+          localStorage.setItem(memberKey, JSON.stringify(memberData));
+          location.reload();
+        });
+      }
+    </script>
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalTitle">Modal title</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div id="modalOptions"></div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Email Model started -->
+
+    <script>
+      function toggleEmailConsent(memberKey) {
+        console.log(memberKey);
+        const automaticRenewalDisplay =
+          document.getElementById("emailConsentText");
+        const modalTitleEmail = document.getElementById("modalTitleEmail");
+        const modalOptionsEmail = document.getElementById("modalOptionsEmail");
+
+        // Update modal title and options
+        modalTitleEmail.textContent = "Email Consent";
+        modalOptionsEmail.innerHTML = `
+      <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Email Consent</button>
+      <button type="button" class="btn btn-danger" data-bs-dismiss="modal">No Email Consent</button>
+    `;
+
+        // Show the modal
+        const myModal = new bootstrap.Modal(
+          document.getElementById("emailModal")
+        );
+        myModal.show();
+
+        // Remove previous event listeners to prevent duplicates
+        modalOptionsEmail.replaceWith(modalOptionsEmail.cloneNode(true));
+        const newModalOptionsEmail =
+          document.getElementById("modalOptionsEmail");
+
+        // Handle the selection from modal
+        newModalOptionsEmail.addEventListener("click", function (event) {
+          const selectedOption = event.target.textContent;
+          automaticRenewalDisplay.textContent = selectedOption;
+          console.log(`selectedOption: ${selectedOption}`);
+          // Update the automatic renewal status in localStorage for the specific member
+          const memberData = JSON.parse(localStorage.getItem(memberKey));
+          console.log(`memberKey: ${memberKey}`);
+
+          memberData.emailConsent = selectedOption === "Email Consent";
+          localStorage.setItem(memberKey, JSON.stringify(memberData));
+          location.reload();
+        });
+      }
+    </script>
+
+    <!-- email model end  -->
+    <script>
+      function togglePayment(memberKey) {
+        const paymentDisplay = document.getElementById("paymentText");
+        const modalTitlePayment = document.getElementById("modalTitlePayment");
+        const modalOptionsPayment = document.getElementById(
+          "modalOptionsPayment"
+        );
+
+        // Update modal title and options
+        modalTitlePayment.textContent = "Select Payment Method";
+        modalOptionsPayment.innerHTML = `
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cash</button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Paypal</button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Card</button>
+        `;
+
+        // Show the modal
+        const myModal = new bootstrap.Modal(
+          document.getElementById("paymentModal")
+        );
+        myModal.show();
+
+        // Remove previous event listeners to prevent duplicates
+        modalOptionsPayment.replaceWith(modalOptionsPayment.cloneNode(true));
+        const newModalOptionsPayment = document.getElementById(
+          "modalOptionsPayment"
+        );
+
+        // Handle the selection from modal
+        newModalOptionsPayment.addEventListener("click", function (event) {
+          const selectedOption = event.target.textContent;
+          paymentDisplay.textContent = selectedOption;
+
+          // Update the payment method in localStorage for the specific member
+          const memberData = JSON.parse(localStorage.getItem(memberKey));
+          memberData.paymentMethod = selectedOption;
+          localStorage.setItem(memberKey, JSON.stringify(memberData));
+          location.reload();
+        });
+      }
+    </script>
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="paymentModal"
+      tabindex="-1"
+      aria-labelledby="paymentModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalTitlePayment">
+              Select Payment Method
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div id="modalOptionsPayment"></div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
