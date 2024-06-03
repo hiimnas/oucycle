@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OUCycle · Events</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./q2ab.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+          <a class="navbar-brand" href="index.html"
+            ><img src="./logo.png" alt
+          /></a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul
+              class="navbar-nav ms-lg-auto py-4 py-lg-0 text-center text-lg-left"
+            >
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="index.html"
+                  >Home</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="q2ab.html">Rides</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="Events.html">Events</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="Member.html">Members</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="News.html">News</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="Announcements.html">Announcements</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="main">
+      <div class="container">
+        <div class="inner">
+          <h1 class="page-title">Events</h1>
+          <div class="row gx-2 gy-3">
+            <div class="col-12">
+              <div class="card-wrapper">
+                <div class="head">
+                  <h2>Add New Event</h2>
+                </div>
+                <div class="inner-card-wrapper">
+                  <form id="eventForm">
+                    <input type="hidden" id="eventKey" />
+                    <div class="row justify-content-center">
+                      <div class="col-lg-3 col-md-4 col-sm-6">
+                        <div class="field-wrapper d-flex flex-column">
+                          <label for="eventName">Name of Event</label>
+                          <input type="text" id="eventName" class="form-control" required />
+                        </div>
+                        <div class="field-wrapper d-flex flex-column mt-3">
+                          <label for="eventType">Type of Event</label>
+                          <input type="text" id="eventType" class="form-control" required />
+                        </div>
+                        <div class="field-wrapper d-flex flex-column mt-3">
+                          <label for="eventDate">Date of Event</label>
+                          <input type="date" id="eventDate" class="form-control" required />
+                        </div>
+                        <div class="field-wrapper d-flex flex-column mt-3">
+                          <label for="startTime">Start Time</label>
+                          <input type="time" id="startTime" class="form-control" required />
+                        </div>
+                        <div class="field-wrapper d-flex flex-column mt-3">
+                          <label for="duration">Duration</label>
+                          <div class="input-group">
+							  <input type="number" id="duration" class="form-control" required />
+							  <div class="input-group-append">
+								<span class="input-group-text">mins</span>
+							  </div>
+                        </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-3 col-md-4 col-sm-6">
+                        <div class="field-wrapper d-flex flex-column">
+                          <label for="eventLocation">Event Location</label>
+                          <input type="text" id="eventLocation" class="form-control" required />
+                        </div>
+                        <div class="field-wrapper d-flex flex-column mt-3">
+                          <label for="organizerName">Name of Organizer</label>
+                          <input type="text" id="organizerName" class="form-control" required />
+                        </div>
+                        <div class="field-wrapper d-flex flex-column mt-3">
+                          <label for="primaryContact"
+                            >Primary Contact Number</label
+                          >
+                          <input type="tel" id="primaryContact" class="form-control" required />
+                        </div>
+                        <div class="field-wrapper d-flex flex-column mt-3">
+                          <label for="secondaryContact"
+                            >Secondary Contact Number</label
+                          >
+                          <input type="tel" id="secondaryContact" class="form-control" />
+                        </div>
+                      </div>
+                      <div class="col-lg-3 col-md-8">
+                        <div
+                          class="field-wrapper d-flex flex-column mt-3 mt-md-0"
+                        >
+                          <label for="comments">Comments</label>
+                          <textarea id="comments" class="form-control" rows="8"></textarea>
+                        </div>
+                      </div>
+                    </div>
+                    <button type="submit" class="more-cta">Submit</button>
+                  </form>
+                </div>
+              </div>
+              <div class="card-wrapper mt-3">
+                <div class="head">
+                  <h2>Existing Events</h2>
+                </div>
+                <!-- <div
+                  id="existingEvents"
+                  class="carousel slide pb-2"
+                  data-bs-ride="carousel"
+                > -->
+                <div class="carousel-indicators">
+                  <!-- Indicators will be dynamically added here -->
+                </div>
+                <div class="carousel-inner">
+                  <!-- Event items will be dynamically added here -->
+                </div>
+                <!-- </div> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      function deleteIT(key) {
+        localStorage.removeItem(key);
+        displayEvents();
+      }
+
+      function displayEvents() {
+        const eventsContainer = document.querySelector(".carousel-inner");
+        const indicatorsContainer = document.querySelector(
+          ".carousel-indicators"
+        );
+
+        // Clear current events
+        eventsContainer.innerHTML = "";
+        indicatorsContainer.innerHTML = "";
+
+        // Get all events from local storage
+        const events = [];
+        for (let i = 0; i < localStorage.length; i++) {
+          const key = localStorage.key(i);
+          if (key.startsWith("event_")) {
+            const event = JSON.parse(localStorage.getItem(key));
+            events.push({ key, ...event });
+          }
+        }
+
+        // Sort events by key (timestamp)
+        events.sort((a, b) => a.key.localeCompare(b.key));
+
+        // Display events
+        events.forEach((event, index) => {
+          eventsContainer.innerHTML += `
+                      <div class="inner-card-wrapper">
+                          <div class="bordered-card-item">
+                              <div class="details-head d-flex justify-content-between">
+                                  <div class="d-flex flex-column align-items-start">
+                                      <h3>${event.eventName}</h3>
+                                      <p>Held at ${event.eventLocation}</p>
+                                      <span>Type: ${event.eventType}</span>
+                                  </div>
+                                  <div class="edit d-flex align-items-start">
+                                      <div class="d-flex flex-column align-items-end">
+                                          <span>${event.eventDate}</span>
+                                          <span>${event.startTime} for ${event.duration} mins</span>
+                                      </div>
+                                      <span class="status edit" onclick="editEvent('${event.key}')"><i class="text-light fa-solid fa-pen-to-square"></i></span>
+                                      <span class="status edit"><i class="text-light fa-solid fa-trash" onclick="deleteIT('${event.key}')"></i></span>
+                                  </div>
+                              </div>
+                              <div class="content column-details">
+                                  <div class="d-flex align-items-start mt-2">
+                                      <span class="small">Comments</span>
+                                      <p>${event.comments}</p>
+                                  </div>
+                                  <div class="d-flex align-items-start mt-2">
+                                      <span class="small">Organizer</span>
+                                      <p class="small"><span class="small bolder">${event.organizerName}</span> Primary: ${event.primaryContact}, Secondary: ${event.secondaryContact}</p>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+              `;
+        });
+      }
+
+      document
+        .getElementById("eventForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault(); // Prevent the form from submitting the traditional way
+
+          // Get form values
+          const eventData = {
+            eventName: document.getElementById("eventName").value,
+            eventType: document.getElementById("eventType").value,
+            eventDate: document.getElementById("eventDate").value,
+            startTime: document.getElementById("startTime").value,
+            duration: document.getElementById("duration").value,
+            eventLocation: document.getElementById("eventLocation").value,
+            organizerName: document.getElementById("organizerName").value,
+            primaryContact: document.getElementById("primaryContact").value,
+            secondaryContact: document.getElementById("secondaryContact").value,
+            comments: document.getElementById("comments").value,
+          };
+          const eventKey = document.getElementById("eventKey").value;
+          if (eventKey) {
+            localStorage.setItem(eventKey, JSON.stringify(eventData));
+          } else {
+            const uniqueKey = "event_" + new Date().getTime();
+            localStorage.setItem(uniqueKey, JSON.stringify(eventData));
+          }
+
+          // Clear the form
+          document.getElementById("eventForm").reset();
+
+          // Update the display
+          displayEvents();
+          alert("Data stored successfully!");
+        });
+
+      // Function to populate form fields with event data for editing
+      function editEvent(key) {
+        const eventData = JSON.parse(localStorage.getItem(key));
+        document.getElementById("eventKey").value = key;
+
+        // Populate form fields with event data
+        document.getElementById("eventName").value = eventData.eventName;
+        document.getElementById("eventType").value = eventData.eventType;
+        document.getElementById("eventDate").value = eventData.eventDate;
+        document.getElementById("startTime").value = eventData.startTime;
+        document.getElementById("duration").value = eventData.duration;
+        document.getElementById("eventLocation").value =
+          eventData.eventLocation;
+        document.getElementById("organizerName").value =
+          eventData.organizerName;
+        document.getElementById("primaryContact").value =
+          eventData.primaryContact;
+        document.getElementById("secondaryContact").value =
+          eventData.secondaryContact;
+        document.getElementById("comments").value = eventData.comments;
+      }
+
+      // Initial display of existing events
+      displayEvents();
+    </script>
+  </body>
+</html>
