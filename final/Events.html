@@ -17,7 +17,7 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./q2a.css" />
   </head>
   <body>
     <header>
@@ -47,7 +47,7 @@
                 >
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="Rides.html">Rides</a>
+                <a class="nav-link" href="q2a.html">Rides</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link active" href="Events.html">Events</a>
@@ -83,45 +83,50 @@
                       <div class="col-lg-3 col-md-4 col-sm-6">
                         <div class="field-wrapper d-flex flex-column">
                           <label for="eventName">Name of Event</label>
-                          <input type="text" id="eventName" required />
+                          <input type="text" id="eventName" class="form-control" required />
                         </div>
                         <div class="field-wrapper d-flex flex-column mt-3">
                           <label for="eventType">Type of Event</label>
-                          <input type="text" id="eventType" required />
+                          <input type="text" id="eventType" class="form-control" required />
                         </div>
                         <div class="field-wrapper d-flex flex-column mt-3">
                           <label for="eventDate">Date of Event</label>
-                          <input type="date" id="eventDate" required />
+                          <input type="date" id="eventDate" class="form-control" required />
                         </div>
                         <div class="field-wrapper d-flex flex-column mt-3">
                           <label for="startTime">Start Time</label>
-                          <input type="time" id="startTime" required />
+                          <input type="time" id="startTime" class="form-control" required />
                         </div>
                         <div class="field-wrapper d-flex flex-column mt-3">
                           <label for="duration">Duration</label>
-                          <input type="text" id="duration" required />
+                          <div class="input-group">
+							  <input type="number" id="duration" class="form-control" required />
+							  <div class="input-group-append">
+								<span class="input-group-text">mins</span>
+							  </div>
+                        </div>
                         </div>
                       </div>
                       <div class="col-lg-3 col-md-4 col-sm-6">
                         <div class="field-wrapper d-flex flex-column">
                           <label for="eventLocation">Event Location</label>
-                          <input type="text" id="eventLocation" required />
+                          <input type="text" id="eventLocation" class="form-control" required />
                         </div>
                         <div class="field-wrapper d-flex flex-column mt-3">
                           <label for="organizerName">Name of Organizer</label>
-                          <input type="text" id="organizerName" required />
+                          <input type="text" id="organizerName" class="form-control" required />
                         </div>
                         <div class="field-wrapper d-flex flex-column mt-3">
                           <label for="primaryContact"
                             >Primary Contact Number</label
                           >
-                          <input type="tel" id="primaryContact" required />
+                          <input type="tel" id="primaryContact" class="form-control" required />
                         </div>
                         <div class="field-wrapper d-flex flex-column mt-3">
                           <label for="secondaryContact"
                             >Secondary Contact Number</label
                           >
-                          <input type="tel" id="secondaryContact" />
+                          <input type="tel" id="secondaryContact" class="form-control" />
                         </div>
                       </div>
                       <div class="col-lg-3 col-md-8">
@@ -129,7 +134,7 @@
                           class="field-wrapper d-flex flex-column mt-3 mt-md-0"
                         >
                           <label for="comments">Comments</label>
-                          <textarea id="comments" rows="4"></textarea>
+                          <textarea id="comments" class="form-control" rows="8"></textarea>
                         </div>
                       </div>
                     </div>
@@ -141,18 +146,18 @@
                 <div class="head">
                   <h2>Existing Events</h2>
                 </div>
-                <div
+                <!-- <div
                   id="existingEvents"
                   class="carousel slide pb-2"
                   data-bs-ride="carousel"
-                >
-                  <div class="carousel-indicators">
-                    <!-- Indicators will be dynamically added here -->
-                  </div>
-                  <div class="carousel-inner">
-                    <!-- Event items will be dynamically added here -->
-                  </div>
+                > -->
+                <div class="carousel-indicators">
+                  <!-- Indicators will be dynamically added here -->
                 </div>
+                <div class="carousel-inner">
+                  <!-- Event items will be dynamically added here -->
+                </div>
+                <!-- </div> -->
               </div>
             </div>
           </div>
@@ -167,6 +172,70 @@
     ></script>
 
     <script>
+      function deleteIT(key) {
+        localStorage.removeItem(key);
+        displayEvents();
+      }
+
+      function displayEvents() {
+        const eventsContainer = document.querySelector(".carousel-inner");
+        const indicatorsContainer = document.querySelector(
+          ".carousel-indicators"
+        );
+
+        // Clear current events
+        eventsContainer.innerHTML = "";
+        indicatorsContainer.innerHTML = "";
+
+        // Get all events from local storage
+        const events = [];
+        for (let i = 0; i < localStorage.length; i++) {
+          const key = localStorage.key(i);
+          if (key.startsWith("event_")) {
+            const event = JSON.parse(localStorage.getItem(key));
+            events.push({ key, ...event });
+          }
+        }
+
+        // Sort events by key (timestamp)
+        events.sort((a, b) => a.key.localeCompare(b.key));
+
+        // Display events
+        events.forEach((event, index) => {
+          eventsContainer.innerHTML += `
+                      <div class="inner-card-wrapper">
+                          <div class="bordered-card-item">
+                              <div class="details-head d-flex justify-content-between">
+                                  <div class="d-flex flex-column align-items-start">
+                                      <h3>${event.eventName}</h3>
+                                      <p>Held at ${event.eventLocation}</p>
+                                      <span>Type: ${event.eventType}</span>
+                                  </div>
+                                  <div class="edit d-flex align-items-start">
+                                      <div class="d-flex flex-column align-items-end">
+                                          <span>${event.eventDate}</span>
+                                          <span>${event.duration} mins</span>
+                                      </div>
+                                      <span class="status edit" onclick="editEvent('${event.key}')"><i class="text-light fa-solid fa-pen-to-square"></i></span>
+                                      <span class="status edit"><i class="text-light fa-solid fa-trash" onclick="deleteIT('${event.key}')"></i></span>
+                                  </div>
+                              </div>
+                              <div class="content column-details">
+                                  <div class="d-flex align-items-start mt-2">
+                                      <span class="small">Comments</span>
+                                      <p>${event.comments}</p>
+                                  </div>
+                                  <div class="d-flex align-items-start mt-2">
+                                      <span class="small">Organizer</span>
+                                      <p class="small"><span class="small bolder">${event.organizerName}</span> Primary: ${event.primaryContact}, Secondary: ${event.secondaryContact}</p>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+              `;
+        });
+      }
+
       document
         .getElementById("eventForm")
         .addEventListener("submit", function (event) {
@@ -221,75 +290,6 @@
         document.getElementById("secondaryContact").value =
           eventData.secondaryContact;
         document.getElementById("comments").value = eventData.comments;
-      }
-
-      function displayEvents() {
-        const eventsContainer = document.querySelector(".carousel-inner");
-        const indicatorsContainer = document.querySelector(
-          ".carousel-indicators"
-        );
-
-        // Clear current events
-        eventsContainer.innerHTML = "";
-        indicatorsContainer.innerHTML = "";
-
-        // Get all events from local storage
-        const events = [];
-        for (let i = 0; i < localStorage.length; i++) {
-          const key = localStorage.key(i);
-          if (key.startsWith("event_")) {
-            const event = JSON.parse(localStorage.getItem(key));
-            events.push({ key, ...event });
-          }
-        }
-
-        // Sort events by key (timestamp)
-        events.sort((a, b) => a.key.localeCompare(b.key));
-
-        // Display events
-        events.forEach((event, index) => {
-          const activeClass = index === 0 ? "active" : "";
-
-          indicatorsContainer.innerHTML += `
-                  <button type="button" data-bs-target="#existingEvents" data-bs-slide-to="${index}"
-                          class="${activeClass}" aria-current="true" aria-label="Slide ${
-            index + 1
-          }"></button>
-              `;
-
-          eventsContainer.innerHTML += `
-                  <div class="carousel-item ${activeClass}">
-                      <div class="inner-card-wrapper">
-                          <div class="bordered-card-item">
-                              <div class="details-head d-flex justify-content-between">
-                                  <div class="d-flex flex-column align-items-start">
-                                      <h3>${event.eventName}</h3>
-                                      <p>Held at ${event.eventLocation}</p>
-                                      <span>Type: ${event.eventType}</span>
-                                  </div>
-                                  <div class="edit d-flex align-items-start">
-                                      <div class="d-flex flex-column align-items-end">
-                                          <span>${event.eventDate}</span>
-                                          <span>${event.duration}</span>
-                                      </div>
-                                      <span class="status edit" onclick="editEvent('${event.key}')"><i class="text-light fa-solid fa-pen-to-square"></i></span>
-                                  </div>
-                              </div>
-                              <div class="content column-details">
-                                  <div class="d-flex align-items-start mt-2">
-                                      <span class="small">Comments</span>
-                                      <p>${event.comments}</p>
-                                  </div>
-                                  <div class="d-flex align-items-start mt-2">
-                                      <span class="small">Organizer</span>
-                                      <p class="small"><span class="small bolder">${event.organizerName}</span> Primary: ${event.primaryContact}, Secondary: ${event.secondaryContact}</p>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              `;
-        });
       }
 
       // Initial display of existing events

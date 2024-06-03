@@ -17,7 +17,7 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./q2a.css" />
   </head>
   <body>
     <header>
@@ -47,7 +47,7 @@
                 >
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="Rides.html">Rides</a>
+                <a class="nav-link" href="q2a.html">Rides</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="Events.html">Events</a>
@@ -88,6 +88,7 @@
                             type="text"
                             id="subject"
                             name="subject"
+                            class="form-control"
                             required
                           />
                         </div>
@@ -97,6 +98,7 @@
                             type="text"
                             id="senderName"
                             name="senderName"
+                            class="form-control"
                             required
                           />
                         </div>
@@ -106,6 +108,7 @@
                             type="datetime-local"
                             id="dateTime"
                             name="dateTime"
+                            class="form-control"
                             required
                           />
                         </div>
@@ -115,11 +118,12 @@
                             id="priority"
                             name="priority"
                             class="form-select"
+                            class="form-control"
                             required
                           >
                             <option value="low">Low</option>
-                            <option value="high">High</option>
                             <option value="medium">Medium</option>
+                            <option value="high">High</option>
                           </select>
                         </div>
                       </div>
@@ -131,7 +135,8 @@
                           <textarea
                             id="announcementContent"
                             name="announcementContent"
-                            rows="11"
+                            rows="12"
+                            class="form-control"
                             required
                           ></textarea>
                         </div>
@@ -143,7 +148,7 @@
               </div>
               <div class="card-wrapper mt-3">
                 <div class="head">
-                  <h2>Existing Articles</h2>
+                  <h2>Existing Announcements</h2>
                 </div>
                 <div class="inner-card-wrapper" id="announcementContainer">
                   <!-- Existing announcements will be inserted here dynamically -->
@@ -162,6 +167,83 @@
     ></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
+      function deleteIT(key) {
+        localStorage.removeItem(key);
+        renderAnnouncements();
+      }
+
+      function renderAnnouncements() {
+        const announcementContainer = $("#announcementContainer");
+        announcementContainer.empty();
+        // const announcements =
+        // JSON.parse(localStorage.getItem("announcements")) || [];
+
+        const announcements = [];
+        for (let i = 0; i < localStorage.length; i++) {
+          const key = localStorage.key(i);
+          if (key.startsWith("announcements_")) {
+            const announcement = JSON.parse(localStorage.getItem(key));
+            announcements.push({ key, ...announcement });
+          }
+        }
+        announcements.sort((a, b) => a.key.localeCompare(b.key));
+
+        // announcements.forEach((announcement, index) => {
+        announcements.forEach((announcement, index) => {
+          let check_priority = "approved";
+          if (announcement.priority.toLowerCase() === "high") {
+            check_priority = "cancelled";
+          } else if (announcement.priority.toLowerCase() === "medium") {
+            check_priority = "proposed";
+          }
+          const announcementItem = `
+                                <div class="bordered-card-item">
+                                    <div class="details-head d-flex justify-content-between">
+                                        <div class="d-flex flex-column align-items-start">
+                                            <h3>${announcement.subject}</h3>
+                                            <p class="small">from ${announcement.senderName}</p>
+                                        </div>
+                                        <div class="edit d-flex align-items-start">
+                                            <div class="d-flex flex-column align-items-end">
+                                                <span>${announcement.dateTime}</span>
+                                            </div>
+                                            <span class="status ${check_priority} bigicon" data-key="${announcement.key}" data-bs-toggle="modal" data-bs-target="#statusModal"><i class="fa-solid fa-exclamation"></i></span>
+                                            <span class="status edit"><i class="text-light fa-solid fa-trash" onclick="deleteIT('${announcement.key}')"></i></span>
+                                            </div>
+                                    </div>
+                                    <p>${announcement.content}</p>
+                                </div>
+                            `;
+          announcementContainer.append(announcementItem);
+        });
+
+        document
+          .querySelectorAll(".status[data-bs-toggle='modal']")
+          .forEach((element) => {
+            element.addEventListener("click", function () {
+              const key = this.getAttribute("data-key");
+              console.log("Clicked element key:", key);
+
+              const statusModal = document.getElementById("statusModal");
+              if (!statusModal) {
+                console.error("statusModal element not found");
+                return;
+              }
+              statusModal.setAttribute("data-key", key);
+
+              const announcement = JSON.parse(localStorage.getItem(key));
+              console.log("Announcement from localStorage:", announcement);
+
+              const statusSelect = document.getElementById("priority_modal");
+              if (!statusSelect) {
+                console.error("priority element not found");
+                return;
+              }
+              statusSelect.value = announcement.priority || "high";
+            });
+          });
+      }
+
       document.addEventListener("DOMContentLoaded", function () {
         function saveStatus() {
           const statusSelect = document.getElementById("priority_modal");
@@ -189,76 +271,6 @@
           .getElementById("saveStatusBtn")
           .addEventListener("click", saveStatus);
         // Function to render announcements from localStorage
-        function renderAnnouncements() {
-          const announcementContainer = $("#announcementContainer");
-          announcementContainer.empty();
-          // const announcements =
-          // JSON.parse(localStorage.getItem("announcements")) || [];
-
-          const announcements = [];
-          for (let i = 0; i < localStorage.length; i++) {
-            const key = localStorage.key(i);
-            if (key.startsWith("announcements_")) {
-              const announcement = JSON.parse(localStorage.getItem(key));
-              announcements.push({ key, ...announcement });
-            }
-          }
-          announcements.sort((a, b) => a.key.localeCompare(b.key));
-
-          // announcements.forEach((announcement, index) => {
-          announcements.forEach((announcement, index) => {
-            let check_priority = "approved";
-            if (announcement.priority.toLowerCase() === "high") {
-              check_priority = "cancelled";
-            } else if (announcement.priority.toLowerCase() === "medium") {
-              check_priority = "proposed";
-            }
-            const announcementItem = `
-                                <div class="bordered-card-item">
-                                    <div class="details-head d-flex justify-content-between">
-                                        <div class="d-flex flex-column align-items-start">
-                                            <h3>${announcement.subject}</h3>
-                                            <p class="small">from ${announcement.senderName}</p>
-                                        </div>
-                                        <div class="edit d-flex align-items-start">
-                                            <div class="d-flex flex-column align-items-end">
-                                                <span>${announcement.dateTime}</span>
-                                            </div>
-                                            <span class="status ${check_priority} bigicon" data-key="${announcement.key}" data-bs-toggle="modal" data-bs-target="#statusModal"><i class="fa-solid fa-exclamation"></i></span>
-                                        </div>
-                                    </div>
-                                    <p>${announcement.content}</p>
-                                </div>
-                            `;
-            announcementContainer.append(announcementItem);
-          });
-
-          document
-            .querySelectorAll(".status[data-bs-toggle='modal']")
-            .forEach((element) => {
-              element.addEventListener("click", function () {
-                const key = this.getAttribute("data-key");
-                console.log("Clicked element key:", key);
-
-                const statusModal = document.getElementById("statusModal");
-                if (!statusModal) {
-                  console.error("statusModal element not found");
-                  return;
-                }
-                statusModal.setAttribute("data-key", key);
-
-                const announcement = JSON.parse(localStorage.getItem(key));
-                console.log("Announcement from localStorage:", announcement);
-
-                const statusSelect = document.getElementById("priority");
-                if (!statusSelect) {
-                  console.error("priority element not found");
-                  return;
-                }
-                statusSelect.value = announcement.priority || "high";
-              });
-            });
-        }
         // Initial render of announcements
         renderAnnouncements();
 
@@ -280,7 +292,6 @@
           renderAnnouncements();
         });
       });
-      
     </script>
 
     <!-- Status Modal -->
@@ -305,7 +316,12 @@
             ></button>
           </div>
           <div class="modal-body">
-            <select id="priority_modal" name="priority_modal" class="form-select" required>
+            <select
+              id="priority_modal"
+              name="priority_modal"
+              class="form-select"
+              required
+            >
               <option value="low">Low</option>
               <option value="high">High</option>
               <option value="medium">Medium</option>

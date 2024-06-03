@@ -17,7 +17,7 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./q2a.css" />
   </head>
   <body>
     <header>
@@ -47,7 +47,7 @@
                 >
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="Rides.html">Rides</a>
+                <a class="nav-link" href="q2a.html">Rides</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="Events.html">Events</a>
@@ -83,33 +83,38 @@
                       <div class="col-lg-3 col-md-4 col-sm-6">
                         <div class="field-wrapper d-flex flex-column">
                           <label for="forename">Forename</label>
-                          <input type="text" id="forename" name="forename" />
+                          <input type="text" id="forename" name="forename" class="form-control" />
                         </div>
                         <div class="field-wrapper d-flex flex-column mt-3">
                           <label for="surname">Surname</label>
-                          <input type="text" id="surname" name="surname" />
+                          <input type="text" id="surname" name="surname" class="form-control" />
                         </div>
                         <div class="field-wrapper d-flex flex-column mt-3">
                           <label for="gender">Gender</label>
-                          <input type="text" id="gender" name="gender" />
+                          <select id="gender" name="gender" class="form-select">
+                            <option value="">Select Gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                          </select>
                         </div>
                         <div class="field-wrapper d-flex flex-column mt-3">
                           <label for="dob">Date of Birth</label>
-                          <input type="text" id="dob" name="dob" />
+                          <input type="date" id="dob" name="dob" class="form-control" />
                         </div>
                         <div class="field-wrapper d-flex flex-column mt-3">
                           <label for="email">Email Address</label>
-                          <input type="email" id="email" name="email" />
+                          <input type="email" id="email" name="email" class="form-control" />
                         </div>
                       </div>
                       <div class="col-lg-3 col-md-4 col-sm-6">
                         <div class="field-wrapper d-flex flex-column">
                           <label for="phone">Phone number</label>
-                          <input type="text" id="phone" name="phone" />
+                          <input type="text" id="phone" name="phone" class="form-control" />
                         </div>
                         <div class="field-wrapper d-flex flex-column mt-3">
                           <label for="address">Home address</label>
-                          <input type="text" id="address" name="address" />
+                          <input type="text" id="address" name="address" class="form-control" />
                         </div>
                         <div class="field-wrapper d-flex flex-column mt-3">
                           <label for="emergencyContactName"
@@ -119,6 +124,7 @@
                             type="text"
                             id="emergencyContactName"
                             name="emergencyContactName"
+                            class="form-control"
                           />
                         </div>
                         <div class="field-wrapper d-flex flex-column mt-3">
@@ -129,6 +135,7 @@
                             type="text"
                             id="emergencyContactNumber"
                             name="emergencyContactNumber"
+                            class="form-control"
                           />
                         </div>
                         <div class="field-wrapper d-flex flex-column mt-3">
@@ -137,6 +144,7 @@
                             type="password"
                             id="password"
                             name="password"
+                            class="form-control"
                           />
                         </div>
                       </div>
@@ -149,6 +157,7 @@
                             type="text"
                             id="membershipOption"
                             name="membershipOption"
+                            class="form-control"
                           />
                         </div>
                         <div class="field-wrapper d-flex flex-column mt-3">
@@ -162,6 +171,7 @@
                             class="form-select"
                             required
                           >
+                            <option value="">Select Payment Method</option>
                             <option value="card">Card</option>
                             <option value="paypal">Paypal</option>
                             <option value="cash">Cash</option>
@@ -201,17 +211,12 @@
                 <div class="head">
                   <h2>Existing Members</h2>
                 </div>
-                <div
-                  id="existingMembers"
-                  class="carousel slide pb-2"
-                  data-bs-ride="carousel"
-                >
-                  <div class="carousel-indicators">
-                    <!-- Indicators will be dynamically added here -->
-                  </div>
-                  <div class="carousel-inner">
-                    <!-- Member items will be dynamically added here -->
-                  </div>
+
+                <div class="carousel-indicators">
+                  <!-- Indicators will be dynamically added here -->
+                </div>
+                <div class="carousel-inner">
+                  <!-- Member items will be dynamically added here -->
                 </div>
               </div>
             </div>
@@ -264,43 +269,10 @@
     </div>
 
     <script>
-      document;
-      $("#memberForm").on("submit", function (event) {
-        event.preventDefault();
-
-        // Collect member data from the form
-        const memberData = {
-          forename: $("#forename").val(),
-          surname: $("#surname").val(),
-          gender: $("#gender").val(),
-          dob: $("#dob").val(),
-          email: $("#email").val(),
-          phone: $("#phone").val(),
-          address: $("#address").val(),
-          emergencyContactName: $("#emergencyContactName").val(),
-          emergencyContactNumber: $("#emergencyContactNumber").val(),
-          password: $("#password").val(),
-          membershipOption: $("#membershipOption").val(),
-          paymentMethod: $("#paymentMethod").val(),
-          automaticRenewal: $("#automaticRenewal").is(":checked"),
-          emailConsent: $("#emailConsent").is(":checked"),
-        };
-
-        // Check if it's an edit or add operation
-        const editKey = $("#editKey").val();
-        if (editKey) {
-          // Update existing member data in localStorage
-          localStorage.setItem(editKey, JSON.stringify(memberData));
-        } else {
-          // Generate a unique key for the new member
-          const uniqueKey = "member_" + new Date().getTime();
-          localStorage.setItem(uniqueKey, JSON.stringify(memberData));
-        }
-
-        // Clear the form and re-render existing members
-        $("#memberForm")[0].reset();
+      function deleteIT(key) {
+        localStorage.removeItem(key);
         displayMembers();
-      });
+      }
 
       function displayMembers() {
         const membersContainer = document.querySelector(".carousel-inner");
@@ -330,16 +302,7 @@
 
         // Display members
         members.forEach((member, index) => {
-          const activeClass = index === 0 ? "active" : "";
-
-          indicatorsContainer.innerHTML += `
-            <button type="button" data-bs-target="#existingMembers" data-bs-slide-to="${index}" class="${activeClass}" aria-current="true" aria-label="Slide ${
-            index + 1
-          }"></button>
-        `;
-
           membersContainer.innerHTML += `
-            <div class="carousel-item ${activeClass}">
                 <div class="inner-card-wrapper">
                     <div class="bordered-card-item">
                         <div class="details-head d-flex justify-content-between">
@@ -364,6 +327,9 @@
                                 }">
                                 <i class="text-light fa-solid fa-pen-to-square"></i>
                             </span>
+                            <span class="status edit"><i class="text-light fa-solid fa-trash" onclick="deleteIT('${
+                              member.key
+                            }')"></i></span>
                             </div>
                         </div>
                         <div class="row mb-2">
@@ -410,10 +376,47 @@
                         </div>
                     </div>
                 </div>
-            </div>
         `;
         });
       }
+
+      document;
+      $("#memberForm").on("submit", function (event) {
+        event.preventDefault();
+
+        // Collect member data from the form
+        const memberData = {
+          forename: $("#forename").val(),
+          surname: $("#surname").val(),
+          gender: $("#gender").val(),
+          dob: $("#dob").val(),
+          email: $("#email").val(),
+          phone: $("#phone").val(),
+          address: $("#address").val(),
+          emergencyContactName: $("#emergencyContactName").val(),
+          emergencyContactNumber: $("#emergencyContactNumber").val(),
+          password: $("#password").val(),
+          membershipOption: $("#membershipOption").val(),
+          paymentMethod: $("#paymentMethod").val(),
+          automaticRenewal: $("#automaticRenewal").is(":checked"),
+          emailConsent: $("#emailConsent").is(":checked"),
+        };
+
+        // Check if it's an edit or add operation
+        const editKey = $("#editKey").val();
+        if (editKey) {
+          // Update existing member data in localStorage
+          localStorage.setItem(editKey, JSON.stringify(memberData));
+        } else {
+          // Generate a unique key for the new member
+          const uniqueKey = "member_" + new Date().getTime();
+          localStorage.setItem(uniqueKey, JSON.stringify(memberData));
+        }
+
+        // Clear the form and re-render existing members
+        $("#memberForm")[0].reset();
+        displayMembers();
+      });
 
       // Initial display of existing members
       displayMembers();
