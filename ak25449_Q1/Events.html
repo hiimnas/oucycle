@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>OUCycle · Events</title>
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+            integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+            crossorigin="anonymous">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <div class="container">
+                    <a class="navbar-brand" href="index.html"><img
+                            src="images/logo.png" alt></a>
+                    <button class="navbar-toggler" type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul
+                            class="navbar-nav ms-lg-auto py-4 py-lg-0 text-center text-lg-left">
+                            <li class="nav-item">
+                                <a class="nav-link "
+                                    aria-current="page" href="index.html">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="Rides.html">Rides</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="Events.html">Events</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="Member.html">Members</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="News.html">News</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="Announcements.html">Announcements</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <div class="main">
+            <div class="container">
+                <div class="inner">
+                    <h1 class="page-title">
+                        Events
+                    </h1>
+                    <div class="row gx-2 gy-3">
+                        <div class="col-12">
+                            <div class="card-wrapper">
+                                <div class="head">
+                                    <h2>Add New Event</h2>
+                                </div>
+                                <div class="inner-card-wrapper">
+                                    <form action>
+                                        <div class="row justify-content-center">
+                                            <div
+                                                class="col-lg-3 col-md-4 col-sm-6">
+                                                <div
+                                                    class="field-wrapper d-flex flex-column">
+                                                    <label for>Name of Event</label>
+                                                    <input type="text">
+                                                </div>
+                                                <div
+                                                    class="field-wrapper d-flex flex-column mt-3">
+                                                    <label for>Type of Event</label>
+                                                    <input type="text">
+                                                </div>
+                                                <div
+                                                    class="field-wrapper d-flex flex-column mt-3">
+                                                    <label for>Date of Event</label>
+                                                    <input type="text">
+                                                </div>
+                                                <div
+                                                    class="field-wrapper d-flex flex-column mt-3">
+                                                    <label for>Start Time</label>
+                                                    <input type="text">
+                                                </div>
+                                                <div
+                                                    class="field-wrapper d-flex flex-column mt-3">
+                                                    <label for>Duration</label>
+                                                    <input type="text">
+                                                </div>
+                                            </div>
+                                            <div
+                                                class="col-lg-3 col-md-4 col-sm-6">
+                                                <div
+                                                    class="field-wrapper d-flex flex-column">
+                                                    <label for>Event Location</label>
+                                                    <input type="text">
+                                                </div>
+                                                <div
+                                                    class="field-wrapper d-flex flex-column mt-3">
+                                                    <label for>Name of organizer</label>
+                                                    <input type="text">
+                                                </div>
+                                                <div
+                                                    class="field-wrapper d-flex flex-column mt-3">
+                                                    <label for>Primary contact number</label>
+                                                    <input type="text">
+                                                </div>
+                                                <div
+                                                    class="field-wrapper d-flex flex-column mt-3">
+                                                    <label for>Secondary contact number</label>
+                                                    <input type="text">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3 col-md-8">
+                                                <div
+                                                    class="field-wrapper d-flex flex-column mt-3 mt-md-0">
+                                                    <label for>Comments</label>
+                                                    <textarea name id
+                                                        rows="4"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <a href class="more-cta">Submit</a>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="card-wrapper mt-3">
+                                <div class="head">
+                                    <h2>Existing Events</h2>
+                                </div>
+                                
+								<div class="inner-card-wrapper">
+									<div class="bordered-card-item">
+										<div
+											class="details-head d-flex justify-content-between">
+											<div
+												class="d-flex flex-column align-items-start">
+												<h3>Annual Club
+													Dinner</h3>
+												<p>Held at
+													Restaurant
+													One</p>
+												<span>Type:
+													Dinner</span>
+											</div>
+											<div
+												class="edit d-flex align-items-start">
+												<div
+													class="d-flex flex-column align-items-end">
+													<span>06/06/2024, 8.00 pm</span>
+													<span>1 h 30
+														mins</span>
+
+												</div>
+												<span
+													class="status edit"><i
+														class="text-light fa-solid fa-pen-to-square"></i></span>
+											</div>
+										</div>
+										<div
+											class="content column-details">
+											<div
+												class="d-flex align-items-start mt-2">
+												<span
+													class="small">Comments</span>
+												<p>Chance to
+													socialize and
+													enjoy dinner
+													with
+													everyone.</p>
+											</div>
+											<div
+												class="d-flex align-items-start mt-2">
+												<span
+													class="small">Organizer</span>
+												<p
+													class="small"><span
+														class="small bolder">Garry Nti</span>
+													Primary:
+													07896546667,
+													Secondary:
+													07864235763</p>
+											</div>
+
+										</div>
+									</div>
+									<div class="bordered-card-item">
+										<div
+											class="details-head d-flex justify-content-between">
+											<div
+												class="d-flex flex-column align-items-start">
+												<h3>Talent Show</h3>
+												<p>Held at
+													Royal Albert Hall</p>
+												<span>Type:
+													Misc</span>
+											</div>
+											<div
+												class="edit d-flex align-items-start">
+												<div
+													class="d-flex flex-column align-items-end">
+													<span>22/07/2024, 05.00 pm</span>
+													<span>5 h</span>
+
+												</div>
+												<span
+													class="status edit"><i
+														class="text-light fa-solid fa-pen-to-square"></i></span>
+											</div>
+										</div>
+										<div
+											class="content column-details">
+											<div
+												class="d-flex align-items-start mt-2">
+												<span
+													class="small">Comments</span>
+												<p>Cycling club members all have the chance to show off their talents to judges. Free to come and watch from any time, contact organizer to participate.</p>
+											</div>
+											<div
+												class="d-flex align-items-start mt-2">
+												<span
+													class="small">Organizer</span>
+												<p
+													class="small"><span
+														class="small bolder">Aya Shoryu</span>
+													Primary: 07439863559, Secondary: 07684562384</p>
+											</div>
+
+										</div>
+									</div>
+								</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+    </body>
+</html>

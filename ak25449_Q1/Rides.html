@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>OUCycle · Rides</title>
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+            integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+            crossorigin="anonymous">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <div class="container">
+                    <a class="navbar-brand" href="index.html"><img
+                            src="./images/logo.png" alt></a>
+                    <button class="navbar-toggler" type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul
+                            class="navbar-nav ms-lg-auto py-4 py-lg-0 text-center text-lg-left">
+                            <li class="nav-item">
+                                <a class="nav-link "
+                                    aria-current="page" href="index.html">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="Rides.html">Rides</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="Events.html">Events</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="Member.html">Members</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="News.html">News</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="Announcements.html">Announcements</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <div class="main">
+            <div class="container">
+                <div class="inner">
+                    <h1 class="page-title">
+                        Rides
+                    </h1>
+                    <div class="row gx-2 gy-3">
+                        <div class="col-12">
+                            <div class="card-wrapper">
+                                <div class="head">
+                                    <h2>Add New Ride</h2>
+                                </div>
+                                <div class="inner-card-wrapper">
+                                    <form action>
+                                        <div class="row">
+                                            <div
+                                                class="col-lg-3 col-md-4 col-sm-6">
+                                                <div
+                                                    class="field-wrapper d-flex flex-column">
+                                                    <label for>Name of Ride</label>
+                                                    <input type="text">
+                                                </div>
+                                                <div
+                                                    class="field-wrapper d-flex flex-column mt-3">
+                                                    <label for>Type of Ride</label>
+                                                    <input type="text">
+                                                </div>
+                                                <div
+                                                    class="field-wrapper d-flex flex-column mt-3">
+                                                    <label for>Date of Ride</label>
+                                                    <input type="text">
+                                                </div>
+                                                <div
+                                                    class="field-wrapper d-flex flex-column mt-3">
+                                                    <label for>Start Time</label>
+                                                    <input type="text">
+                                                </div>
+                                                <div
+                                                    class="field-wrapper d-flex flex-column mt-3">
+                                                    <label for>Duration</label>
+                                                    <input type="text">
+                                                </div>
+                                            </div>
+                                            <div
+                                                class="col-lg-3 col-md-4 col-sm-6">
+                                                <div
+                                                    class="field-wrapper d-flex flex-column">
+                                                    <label for>Meeting
+                                                        Point</label>
+                                                    <input type="text">
+                                                </div>
+                                                <div
+                                                    class="field-wrapper d-flex flex-column mt-3">
+                                                    <label for>Distance in km</label>
+                                                    <input type="text">
+                                                </div>
+                                                <div
+                                                    class="field-wrapper d-flex flex-column mt-3">
+                                                    <label for>Elevation in m</label>
+                                                    <input type="text">
+                                                </div>
+                                                <div
+                                                    class="field-wrapper d-flex flex-column mt-3">
+                                                    <label for>Maximum group size</label>
+                                                    <input type="text">
+                                                </div>
+                                            </div>
+                                            <div
+                                                class="col-lg-3 col-md-4 col-sm-6">
+                                                <div
+                                                    class="field-wrapper d-flex flex-column">
+                                                    <label for>Name of
+                                                        leader</label>
+                                                    <input type="text">
+                                                </div>
+                                                <div
+                                                    class="field-wrapper d-flex flex-column mt-3">
+                                                    <label for>Primary contact number</label>
+                                                    <input type="text">
+                                                </div>
+                                                <div
+                                                    class="field-wrapper d-flex flex-column mt-3">
+                                                    <label for>Secondary contact number</label>
+                                                    <input type="text">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3 col-md-12">
+                                                <div
+                                                    class="field-wrapper d-flex flex-column mt-3 mt-md-0">
+                                                    <label for>Comments</label>
+                                                    <textarea name id
+                                                        rows="4"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <a href class="more-cta">Submit</a>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="card-wrapper mt-3">
+                                <div class="head">
+                                    <h2>Existing Rides</h2>
+                                </div>
+								<div class="inner-card-wrapper">
+									<div class="bordered-card-item">
+										<div
+											class="details-head d-flex justify-content-between">
+											<div
+												class="d-flex flex-column align-items-start">
+												<h3>High Watcombe to
+													Walton</h3>
+												<p>Meet at Watcombe
+													Fields Entrance
+													A</p>
+												<span>Type: Road,
+													cyclocross,
+													mountain bike,
+													race</span>
+											</div>
+											<div
+												class="edit d-flex align-items-start">
+												<div
+													class="d-flex flex-column align-items-end">
+													<span>05/06/2024,
+														10.00
+														am</span>
+													<span>22 km for
+														120
+														mins</span>
+													<span
+														class="status proposed mt-1">Proposed</span>
+												</div>
+												<span
+													class="status edit"><i
+														class="text-light fa-solid fa-pen-to-square"></i></span>
+											</div>
+										</div>
+										<div
+											class="content column-details">
+											<div
+												class="d-flex align-items-start mt-2">
+												<span
+													class="small">Comments</span>
+												<p>Flat ride,
+													suitable for
+													beginners and
+													senior
+													members</p>
+											</div>
+											<div
+												class="d-flex align-items-start mt-2">
+												<span
+													class="small">Leader</span>
+												<p
+													class="small"><span
+														class="small bolder">Helen
+														Smith</span>
+													Primary:
+													07774075441,
+													Secondary:
+													07725076814</p>
+											</div>
+											<div
+												class="d-flex align-items-start mt-2">
+												<span
+													class="small">Extra</span>
+												<p
+													class="small">Elevation:
+													200 m<br>Maximum
+													Group Size:
+													12</p>
+											</div>
+										</div>
+									</div>
+									<div class="bordered-card-item">
+										<div
+											class="details-head d-flex justify-content-between">
+											<div
+												class="d-flex flex-column align-items-start">
+												<h3>Highlands Trail</h3>
+												<p>Meet at Highlands Wildlife Park Car Park</p>
+												<span>Type: Road, cyclocross, mountain bike, race</span>
+											</div>
+											<div
+												class="edit d-flex align-items-start">
+												<div
+													class="d-flex flex-column align-items-end">
+													<span>12/05/2024, 02.00 pm</span>
+													<span>20 km for 180 mins</span>
+													<span
+														class="status approved mt-1">Approved</span>
+												</div>
+												<span
+													class="status edit"><i
+														class="text-light fa-solid fa-pen-to-square"></i></span>
+											</div>
+										</div>
+										<div
+											class="content column-details">
+											<div
+												class="d-flex align-items-start mt-2">
+												<span
+													class="small">Comments</span>
+												<p>Scenic ride through the Scottish Highlands terrain, suitable for intermediate riders.</p>
+											</div>
+											<div
+												class="d-flex align-items-start mt-2">
+												<span
+													class="small">Leader</span>
+												<p
+													class="small"><span
+														class="small bolder">John Doe</span>
+													Primary: 07123456789, Secondary: 07987654321 </p>
+											</div>
+											<div
+												class="d-flex align-items-start mt-2">
+												<span
+													class="small">Extra</span>
+												<p
+													class="small">Elevation:
+													200 m<br>Maximum
+													Group Size:
+													12</p>
+											</div>
+										</div>
+									</div>
+									<div class="bordered-card-item">
+										<div
+											class="details-head d-flex justify-content-between">
+											<div
+												class="d-flex flex-column align-items-start">
+												<h3>Highlands Trail</h3>
+												<p>Meet at Highlands Wildlife Park Car Park</p>
+												<span>Type: Road, cyclocross, mountain bike, race</span>
+											</div>
+											<div
+												class="edit d-flex align-items-start">
+												<div
+													class="d-flex flex-column align-items-end">
+													<span>12/05/2024, 02.00 pm</span>
+													<span>20 km for 180 mins</span>
+													<span
+														class="status approved mt-1">Approved</span>
+												</div>
+												<span
+													class="status edit"><i
+														class="text-light fa-solid fa-pen-to-square"></i></span>
+											</div>
+										</div>
+										<div
+											class="content column-details">
+											<div
+												class="d-flex align-items-start mt-2">
+												<span
+													class="small">Comments</span>
+												<p>Scenic ride through the Scottish Highlands terrain, suitable for intermediate riders.</p>
+											</div>
+											<div
+												class="d-flex align-items-start mt-2">
+												<span
+													class="small">Leader</span>
+												<p
+													class="small"><span
+														class="small bolder">John Doe</span>
+													Primary: 07123456789, Secondary: 07987654321 </p>
+											</div>
+											<div
+												class="d-flex align-items-start mt-2">
+												<span
+													class="small">Extra</span>
+												<p
+													class="small">Elevation:
+													200 m<br>Maximum
+													Group Size:
+													12</p>
+											</div>
+										</div>
+									</div>
+									<div class="bordered-card-item">
+										<div
+											class="details-head d-flex justify-content-between">
+											<div
+												class="d-flex flex-column align-items-start">
+												<h3>Highlands Trail</h3>
+												<p>Meet at Highlands Wildlife Park Car Park</p>
+												<span>Type: Road, cyclocross, mountain bike, race</span>
+											</div>
+											<div
+												class="edit d-flex align-items-start">
+												<div
+													class="d-flex flex-column align-items-end">
+													<span>12/05/2024, 02.00 pm</span>
+													<span>20 km for 180 mins</span>
+													<span
+														class="status approved mt-1">Approved</span>
+												</div>
+												<span
+													class="status edit"><i
+														class="text-light fa-solid fa-pen-to-square"></i></span>
+											</div>
+										</div>
+										<div
+											class="content column-details">
+											<div
+												class="d-flex align-items-start mt-2">
+												<span
+													class="small">Comments</span>
+												<p>Scenic ride through the Scottish Highlands terrain, suitable for intermediate riders.</p>
+											</div>
+											<div
+												class="d-flex align-items-start mt-2">
+												<span
+													class="small">Leader</span>
+												<p
+													class="small"><span
+														class="small bolder">John Doe</span>
+													Primary: 07123456789, Secondary: 07987654321 </p>
+											</div>
+											<div
+												class="d-flex align-items-start mt-2">
+												<span
+													class="small">Extra</span>
+												<p
+													class="small">Elevation:
+													200 m<br>Maximum
+													Group Size:
+													12</p>
+											</div>
+										</div>
+									</div>
+									<div class="bordered-card-item">
+										<div
+											class="details-head d-flex justify-content-between">
+											<div
+												class="d-flex flex-column align-items-start">
+												<h3>Highlands Trail</h3>
+												<p>Meet at Highlands Wildlife Park Car Park</p>
+												<span>Type: Road, cyclocross, mountain bike, race</span>
+											</div>
+											<div
+												class="edit d-flex align-items-start">
+												<div
+													class="d-flex flex-column align-items-end">
+													<span>12/05/2024, 02.00 pm</span>
+													<span>20 km for 180 mins</span>
+													<span
+														class="status approved mt-1">Approved</span>
+												</div>
+												<span
+													class="status edit"><i
+														class="text-light fa-solid fa-pen-to-square"></i></span>
+											</div>
+										</div>
+										<div
+											class="content column-details">
+											<div
+												class="d-flex align-items-start mt-2">
+												<span
+													class="small">Comments</span>
+												<p>Scenic ride through the Scottish Highlands terrain, suitable for intermediate riders.</p>
+											</div>
+											<div
+												class="d-flex align-items-start mt-2">
+												<span
+													class="small">Leader</span>
+												<p
+													class="small"><span
+														class="small bolder">John Doe</span>
+													Primary: 07123456789, Secondary: 07987654321 </p>
+											</div>
+											<div
+												class="d-flex align-items-start mt-2">
+												<span
+													class="small">Extra</span>
+												<p
+													class="small">Elevation:
+													200 m<br>Maximum
+													Group Size:
+													12</p>
+											</div>
+										</div>
+									</div>
+								</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+    </body>
+</html>
